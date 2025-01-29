@@ -8,6 +8,18 @@ const MobileNav = () => {
   const handleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  // disable scroll on body when menu is opened
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add("menu-active");
+    } else {
+      document.body.classList.remove("menu-active");
+    }
+    return () => {
+      document.body.classList.remove("menu-active");
+    };
+  }, [isMenuOpen]);
+
   return (
     <>
       <button onClick={handleMenu} className="ml-auto shrink-0 lg:hidden">
