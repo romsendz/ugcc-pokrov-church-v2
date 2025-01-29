@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .font-pt-sans-narrow {
+    font-family: var(--font-pt-sans-narrow), Arial, sans-serif;
+  }
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --header-height: 4.75rem;
+  --header-height-desktop: 8rem;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-philosopher), var(--font-pt-sans-narrow), Arial,
+    Helvetica, sans-serif;
+}
