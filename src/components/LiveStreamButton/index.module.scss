@@ -1,0 +1,70 @@
+.button {
+  padding: 0.15rem 0.5rem !important; // making it a bit smaller than regular ButtonLink component
+  border: none;
+  outline: none;
+  color: #fff;
+  position: relative;
+  z-index: 0;
+  border-radius: 1rem;
+  cursor: help;
+}
+
+.button.live {
+  cursor: pointer;
+}
+
+.button::before {
+  background: linear-gradient(45deg, #ce9f9f, #d1b39a);
+}
+
+.button.live::before {
+  content: "";
+  animation: glowing 20s linear infinite;
+  background: linear-gradient(
+    45deg,
+    #ff0000,
+    #ff7b00,
+    #eeff00,
+    #ff008c,
+    #ff002b
+  );
+  position: absolute;
+  top: -0.25rem;
+  left: -0.25rem;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(0.2rem);
+  width: calc(100% + 0.5rem);
+  height: calc(100% + 0.5rem);
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 1rem;
+}
+
+.button::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #776666;
+  left: 0;
+  top: 0;
+  border-radius: 1rem;
+}
+
+.button.live::after {
+  background: #111;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}

@@ -1,3 +1,4 @@
+import LiveStreamButton from "@components/LiveStreamButton";
 import { useAppContext } from "@contexts/AppContext/useAppContext";
 import clsx from "clsx";
 import Image from "next/image";
@@ -60,6 +61,7 @@ const MobileNav = () => {
                 <Link className="hover:underline" href={"/live-stream"}>
                   Пряма трансляція
                 </Link>
+                <LiveStreamButton />
               </li>
               <li className="flex gap-3">
                 <Link className="hover:underline" href={"/schedule"}>
