@@ -1,5 +1,8 @@
 import { useAppContext } from "@contexts/AppContext/useAppContext";
+import clsx from "clsx";
 import Image from "next/image";
+import Link from "next/link";
+import { useEffect } from "react";
 import styles from "./index.module.scss";
 
 const MobileNav = () => {
@@ -8,6 +11,16 @@ const MobileNav = () => {
   const handleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  // close menu when link is clicked in navigation
+  const handleMenuClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    const target = event.target as HTMLElement;
+    const link = target.closest("a"); // Check if the clicked element is inside an <a>
+    if (link) {
+      setIsMenuOpen(false);
+    }
+  };
+
   // disable scroll on body when menu is opened
   useEffect(() => {
     if (isMenuOpen) {
@@ -36,6 +49,8 @@ const MobileNav = () => {
         })}
       >
         <div className="px-6 py-4">
+          <nav onClick={handleMenuClick}>
+          </nav>
         </div>
       </div>
     </>
