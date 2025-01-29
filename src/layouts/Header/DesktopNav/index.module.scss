@@ -1,0 +1,98 @@
+.nav_desktop {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.drop {
+  box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.4);
+  padding: 0.25rem 1rem;
+  position: relative;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;
+  height: 100%;
+  border-radius: 1rem;
+  user-select: none;
+  transition:
+    background-color 0.4s ease,
+    border-radius 0.2s ease;
+  border: 1px solid #e29579; // text-brand color
+  cursor: pointer;
+  & > * {
+    white-space: nowrap;
+  }
+  &:hover {
+    background-color: #7c5344;
+    border-bottom: 1px solid transparent;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  &.alone {
+    position: relative;
+    box-shadow: none;
+    border-radius: 0.25rem;
+    height: auto;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      width: calc(100% + 2px);
+      height: 0.5rem;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      background: linear-gradient(
+        180deg,
+        rgba(49, 47, 45, 1) 0%,
+        rgba(240, 72, 11, 0.6355334370076156) 80%
+      );
+      z-index: 0;
+    }
+    &:hover {
+      border-bottom: 1px solid transparent;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+}
+
+.list {
+  left: -1rem;
+  top: 100%;
+  min-width: calc(100% + 2rem);
+  width: max-content;
+  position: absolute;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  border-radius: 1rem;
+  background: #6c6161;
+  padding: 0.25rem 0.75rem;
+  border: 3px solid #e29579;
+  box-shadow: 0 20px 20px -5px rgba(60, 60, 100, 0.2);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    visibility 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.drop:hover > .list,
+.list:hover {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.list a {
+  transition: color 0.2s ease;
+}
+
+.list a:hover {
+  color: #e29579;
+}

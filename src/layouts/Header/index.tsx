@@ -5,6 +5,8 @@ import Link from "next/link";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import MobileNav from "./MobileNav";
+import DesktopNav from "./DesktopNav";
+
 const Header = () => {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
@@ -27,6 +29,7 @@ const Header = () => {
             <span className="text-base text-white">м. Заліщики</span>
           </h5>
         </Link>
+        <DesktopNav />
         <MobileNav />
       </header>
     </>
