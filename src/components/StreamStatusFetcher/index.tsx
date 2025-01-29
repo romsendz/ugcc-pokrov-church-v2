@@ -20,6 +20,7 @@ export default function DataFetcher() {
     };
 
     getData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname]); // Trigger fetch on every route change
 
   return null; // Invisible component
