@@ -12,6 +12,9 @@ export const AppProvider: React.FC<AppProviderProps> = ({
   children,
   initialStreamStatus,
 }) => {
+  // Menu state
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   // State for YT API data
   const [streamStatus, setStreamStatus] =
     useState<LiveStreamResponse>(initialStreamStatus); // Initialize with server-side data on init
@@ -19,6 +22,8 @@ export const AppProvider: React.FC<AppProviderProps> = ({
   return (
     <AppContext.Provider
       value={{
+        isMenuOpen,
+        setIsMenuOpen,
         streamStatus,
         setStreamStatus,
       }}
