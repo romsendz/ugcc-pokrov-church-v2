@@ -2,6 +2,7 @@ import HeroVideo from "@components/HeroVideo";
 import Link from "next/link";
 import LiveStreamButton from "@components/LiveStreamButton";
 import Image from "next/image";
+import DayToday from "@components/DayToday";
 
 export default function Home() {
   return (
@@ -46,6 +47,7 @@ export default function Home() {
         </div>
       </section>
       <hr className="h-2 w-full border-0 bg-[#a19d99] lg:hidden" />
+      <DayToday />
     </div>
   );
 }
