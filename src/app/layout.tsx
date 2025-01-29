@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Philosopher, PT_Sans_Narrow } from "next/font/google";
 import "@styles/globals.scss";
+import Header from "@layouts/Header";
 import { AppProvider } from "@contexts/AppContext/AppProvider";
 import StreamStatusFetcher from "@components/StreamStatusFetcher";
 import { getStreamStatus } from "@lib/api/getStreamStatus";
@@ -55,6 +56,7 @@ export default async function RootLayout({
         <AppProvider initialStreamStatus={initialStreamStatus}>
           <StreamStatusFetcher />
           <div className={clsx("flex min-h-screen flex-col", prose.join(" "))}>
+            <Header />
             <main className="flex-1">{children}</main>
           </div>
         </AppProvider>
