@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Philosopher, PT_Sans_Narrow } from "next/font/google";
 import "@styles/globals.scss";
+import { AppProvider } from "@contexts/AppContext/AppProvider";
+import StreamStatusFetcher from "@components/StreamStatusFetcher";
+import { getStreamStatus } from "@lib/api/getStreamStatus";
+import { LiveStreamResponse } from "@api/live-stream/route";
 import clsx from "clsx";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -42,14 +46,18 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const initialStreamStatus: LiveStreamResponse = await getStreamStatus(); // Fetch data server-side for SSR
   return (
     <html lang="uk" className="scroll-smooth">
       <body
         className={`${philosopher.variable} ${pTSansNarrow.variable} bg-slate-200 antialiased`}
       >
+        <AppProvider initialStreamStatus={initialStreamStatus}>
+          <StreamStatusFetcher />
           <div className={clsx("flex min-h-screen flex-col", prose.join(" "))}>
             <main className="flex-1">{children}</main>
           </div>
+        </AppProvider>
         <SpeedInsights />
       </body>
     </html>
