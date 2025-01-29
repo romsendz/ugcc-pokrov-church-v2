@@ -1,8 +1,11 @@
+import HeroVideo from "@components/HeroVideo";
 import LiveStreamButton from "@components/LiveStreamButton";
 import Image from "next/image";
 
 export default function Home() {
   return (
+    <div className="flex flex-col lg:relative">
+      <HeroVideo />
             <LiveStreamButton noLink={true} fallbackIconSize={25} />
             <Image
               className="dark:invert"

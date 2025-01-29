@@ -1,0 +1,31 @@
+.wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  filter: brightness(0.65);
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transition: opacity 0.5s ease; /* Smooth transition using opacity */
+  }
+
+  &::after {
+    background: linear-gradient(
+      180deg,
+      rgba(200, 197, 195, 0.85) 0%,
+      rgba(226, 232, 240, 0.85) 100%
+    );
+    opacity: 0; /* Secondary gradient hidden */
+  }
+
+  &.lovely_gradient::after {
+    opacity: 1; /* Fade in the secondary gradient */
+  }
+}
