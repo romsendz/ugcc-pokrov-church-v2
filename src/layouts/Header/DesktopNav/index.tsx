@@ -11,14 +11,21 @@ const DesktopNav = () => {
       role="navigation"
       className={clsx(
         styles.nav_desktop,
-        "hidden items-center lg:flex lg:gap-5 lg:pr-3 xl:gap-20 xl:pr-10",
+        "hidden items-center lg:flex lg:gap-5 lg:pr-3 xl:gap-6 xl:pr-5 2xl:gap-12 2xl:pr-10",
       )}
     >
       <Link
         href={"/"}
-        className={clsx(styles.drop, styles.alone, "font-bold text-brand")}
+        className={clsx(styles.drop, styles.alone, "p-2 lg:hidden xl:block")}
+        title="Головна"
       >
-        Головна
+        <Image
+          className="mx-[0] my-[auto] hidden lg:block"
+          width={20}
+          height={20}
+          src={"/svgs/church.svg"}
+          alt="Церква"
+        />
       </Link>
       <div className="flex flex-row gap-5">
         <div className={styles.drop}>
@@ -123,7 +130,7 @@ const DesktopNav = () => {
       <div className="flex shrink-0 flex-row gap-5">
         <Link
           href={"/live-stream"}
-          className={clsx(styles.drop, styles.alone, "p-2 font-bold", {
+          className={clsx(styles.drop, styles.alone, "p-2", {
             "motion-safe:animate-pulse": streamStatus.isOnline,
           })}
           title={
@@ -142,7 +149,7 @@ const DesktopNav = () => {
         </Link>
         <Link
           href={"/schedule"}
-          className={clsx(styles.drop, styles.alone, "p-2 font-bold")}
+          className={clsx(styles.drop, styles.alone, "p-2")}
           title="Розклад Богослужінь"
         >
           <Image

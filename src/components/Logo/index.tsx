@@ -10,7 +10,7 @@ const Logo = () => {
   };
   return (
     <Link href="/" className="flex items-center gap-1" onClick={handleMenu}>
-      <div className="w-16 lg:w-24">
+      <div className="w-16 lg:w-20 xl:w-24">
         <Image
           src="/svgs/logo.svg"
           alt="logo"
@@ -19,7 +19,7 @@ const Logo = () => {
           height={60}
         />
       </div>
-      <h4 className="!m-0 whitespace-nowrap text-xl text-brand lg:text-4xl">
+      <h4 className="!m-0 whitespace-nowrap text-xl text-brand lg:text-2xl xl:text-4xl">
         Парафія Покрови Пресвятої <br /> Богородиці{" "}
         <span className="text-base text-white lg:text-2xl">м. Заліщики</span>
       </h4>
