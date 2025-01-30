@@ -1,11 +1,10 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import MobileNav from "./MobileNav";
 import DesktopNav from "./DesktopNav";
+import Logo from "@components/Logo";
 
 const Header = () => {
   const pathname = usePathname();
@@ -22,13 +21,7 @@ const Header = () => {
           },
         )}
       >
-        <Link href="/" className="flex gap-1">
-          <Image src={"/svgs/logo.svg"} alt="logo" width={60} height={60} />
-          <h5 className="whitespace-nowrap text-brand">
-            Парафія Покрови Пресвятої <br /> Богородиці{" "}
-            <span className="text-base text-white">м. Заліщики</span>
-          </h5>
-        </Link>
+        <Logo />
         <DesktopNav />
         <MobileNav />
       </header>
