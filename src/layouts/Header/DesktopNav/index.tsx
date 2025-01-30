@@ -143,7 +143,7 @@ const DesktopNav = () => {
             className="mx-[0] my-[auto] hidden lg:block"
             width={20}
             height={20}
-            src={"/svgs/tv.svg"}
+            src={"/svgs/tv-light.svg"}
             alt="tv"
           />
         </Link>
