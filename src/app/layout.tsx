@@ -9,6 +9,7 @@ import { getStreamStatus } from "@lib/api/getStreamStatus";
 import { LiveStreamResponse } from "@api/live-stream/route";
 import clsx from "clsx";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 
 const philosopher = Philosopher({
   variable: "--font-philosopher", // CSS variable for this font
@@ -62,6 +63,7 @@ export default async function RootLayout({
             <Footer />
           </div>
         </AppProvider>
+        <Analytics />
         <SpeedInsights />
       </body>
     </html>
