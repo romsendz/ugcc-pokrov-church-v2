@@ -9,12 +9,20 @@ const Logo = () => {
     if (isMenuOpen) setIsMenuOpen(false);
   };
   return (
-    <Link href="/" className="flex gap-1" onClick={handleMenu}>
-      <Image src={"/svgs/logo.svg"} alt="logo" width={60} height={60} />
-      <h5 className="whitespace-nowrap text-brand">
+    <Link href="/" className="flex items-center gap-1" onClick={handleMenu}>
+      <div className="w-16 lg:w-24">
+        <Image
+          src="/svgs/logo.svg"
+          alt="logo"
+          layout="responsive"
+          width={60}
+          height={60}
+        />
+      </div>
+      <h4 className="!m-0 whitespace-nowrap text-xl text-brand lg:text-4xl">
         Парафія Покрови Пресвятої <br /> Богородиці{" "}
-        <span className="text-base text-white">м. Заліщики</span>
-      </h5>
+        <span className="text-base text-white lg:text-2xl">м. Заліщики</span>
+      </h4>
     </Link>
   );
 };
