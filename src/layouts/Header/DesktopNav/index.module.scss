@@ -36,6 +36,8 @@
       content: "";
       position: absolute;
       top: calc(100%);
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
       left: -0.25rem;
       right: -0.25rem;
       width: calc(100% + 0.5rem);

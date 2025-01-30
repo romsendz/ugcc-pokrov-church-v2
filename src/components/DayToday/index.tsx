@@ -8,7 +8,7 @@ const DayToday = async () => {
       className="font-pt-sans-narrow mx-4 my-4 grid grid-rows-[min-content_1fr] rounded-lg px-1 shadow-lg sm:mx-[20%] sm:my-8 lg:absolute lg:bottom-0 lg:right-0 lg:z-[1] lg:m-2 lg:h-60 lg:w-2/5 lg:brightness-[0.9] lg:filter xl:bottom-14 xl:left-0 xl:h-80 xl:w-3/12 [&_i]:text-red-600"
       style={{ backgroundColor: dayData.bg_body }}
     >
-      <div className="py-1 text-center">
+      <div className="py-1 text-center text-base">
         <a
           className="inline-flex gap-2 align-baseline"
           href="https://prayer-service.pp.ua/gregorian/"
@@ -48,7 +48,7 @@ const DayToday = async () => {
             dangerouslySetInnerHTML={{ __html: dayData.fasting_icon }}
           />
         </div>
-        <div className="overflow-y-scroll lg:max-h-40 xl:max-h-56">
+        <div className="overflow-y-scroll lg:max-h-44 xl:max-h-64">
           <ul className="text-gray-800">
             {dayData.titles.map(
               (title: { icon: string | null; text: string }, index: number) => (
