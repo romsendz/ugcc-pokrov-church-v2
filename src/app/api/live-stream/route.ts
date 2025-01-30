@@ -20,11 +20,11 @@ export async function GET() {
     }
 
     // test
-    return NextResponse.json({
-      aboveLimit: false,
-      isOnline: false,
-      videoId: "",
-    });
+    // return NextResponse.json({
+    //   aboveLimit: false,
+    //   isOnline: false,
+    //   videoId: "",
+    // });
 
     // Define the external API endpoint
     const googleApiUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${youtubeChannelId}&eventType=live&type=video&key=${apiKey}`;
