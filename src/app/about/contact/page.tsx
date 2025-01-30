@@ -7,7 +7,7 @@ const Page = () => {
     <div className="text-center">
       <h2>Контакти</h2>
       <p>
-        Тел: <Link href="tel:+38 (03554) 2 18 35">+38 (03554) 2 18 35</Link>
+        Тел: <Link href="tel:+380673547830">+38 (067) 354 78 30</Link>
         <br />
         Email:{" "}
         <Link href="mailto:oivansendzyuk@ukr.net">oivansendzyuk@ukr.net</Link>
