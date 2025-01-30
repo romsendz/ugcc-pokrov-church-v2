@@ -8,14 +8,9 @@ import Image from "next/image";
 
 type LiveStreamButtonProps = Omit<ButtonLinkProps, "href" | "children"> & {
   noLink?: boolean;
-  fallbackIconSize?: number;
 };
 
-const LiveStreamButton = ({
-  noLink,
-  fallbackIconSize,
-  ...props
-}: LiveStreamButtonProps) => {
+const LiveStreamButton = ({ noLink, ...props }: LiveStreamButtonProps) => {
   const { streamStatus } = useAppContext();
   const notAvailable = streamStatus.aboveLimit;
   const streamIsLive = streamStatus.isOnline;
@@ -25,13 +20,22 @@ const LiveStreamButton = ({
 
   if (notAvailable) {
     return (
-      <Image
-        className="mx-[0] my-[auto] hidden lg:block"
-        width={fallbackIconSize || 0}
-        height={fallbackIconSize || 0}
-        src={"/svgs/tv.svg"}
-        alt="tv"
-      />
+      <>
+        <Image
+          className="mx-[0] my-[auto] hidden lg:block"
+          width={25}
+          height={25}
+          src={"/svgs/tv-light.svg"}
+          alt="tv"
+        />
+        <Image
+          className="mx-[0] my-[auto] lg:hidden"
+          width={35}
+          height={35}
+          src={"/svgs/tv.svg"}
+          alt="tv"
+        />
+      </>
     );
   }
 

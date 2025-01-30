@@ -18,7 +18,7 @@ export default function Home() {
             <span className="text-center text-xl font-bold lg:text-base lg:text-brand xl:text-lg">
               Пряма <br className="sm:hidden" /> трансляція
             </span>
-            <LiveStreamButton noLink={true} fallbackIconSize={25} />
+            <LiveStreamButton noLink={true} />
           </Link>
           <div className="m-0 w-2 bg-[#a19d99] lg:hidden" />
           <hr className="border-1 hidden border-[#e29579] lg:block" />
