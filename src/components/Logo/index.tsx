@@ -19,7 +19,7 @@ const Logo = () => {
           height={60}
         />
       </div>
-      <h4 className="!m-0 whitespace-nowrap text-xl text-brand lg:text-2xl xl:text-4xl">
+      <h4 className="!m-0 whitespace-nowrap text-lg text-brand lg:text-2xl xl:text-4xl">
         Парафія Покрови Пресвятої <br /> Богородиці{" "}
         <span className="text-base text-white lg:text-2xl">м. Заліщики</span>
       </h4>
