@@ -10,9 +10,13 @@ const HeroVideo = () => {
 
   return (
     <section
-      className={clsx(styles.wrapper, "relative pb-[56.25%]", {
-        [styles.lovely_gradient]: isMenuOpen,
-      })}
+      className={clsx(
+        styles.wrapper,
+        "relative pb-[56.25%] lg:brightness-[0.65] lg:filter",
+        {
+          [styles.lovely_gradient]: isMenuOpen,
+        },
+      )}
     >
       <iframe
         frameBorder="0"
