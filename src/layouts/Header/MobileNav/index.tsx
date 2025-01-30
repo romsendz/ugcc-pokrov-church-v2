@@ -49,7 +49,7 @@ const MobileNav = () => {
           [styles.active]: isMenuOpen,
         })}
       >
-        <div className="px-6 py-4">
+        <div className="prose-xl px-6 py-4">
           <nav onClick={handleMenuClick}>
             <ul className="flex flex-col gap-5">
               <li>
