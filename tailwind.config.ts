@@ -38,7 +38,7 @@ export default {
         },
         heroVideoCoverFadeOutDesktop: {
           "0%": { opacity: "1" },
-          "6%": { opacity: "1" },
+          "3%": { opacity: "1" },
           "7%": { opacity: "0" },
           "98%": { opacity: "0" },
           "100%": { opacity: "1" },
