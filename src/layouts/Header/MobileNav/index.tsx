@@ -143,8 +143,7 @@ const MobileNav = () => {
               </li>
               <li>
                 <Link className="hover:underline" href={"/communities/homin"}>
-                  Хорова капела
-                  <b>ГОМІН</b>
+                  Хорова капела <b>ГОМІН</b>
                 </Link>
               </li>
             </ul>
