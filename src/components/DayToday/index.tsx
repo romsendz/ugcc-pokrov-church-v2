@@ -48,7 +48,7 @@ const DayToday = async () => {
             dangerouslySetInnerHTML={{ __html: dayData.fasting_icon }}
           />
         </div>
-        <div className="overflow-y-scroll lg:max-h-44 xl:max-h-64">
+        <div className="overflow-y-auto lg:max-h-44 xl:max-h-64">
           <ul className="text-gray-800">
             {dayData.titles.map(
               (title: { icon: string | null; text: string }, index: number) => (
