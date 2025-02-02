@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Philosopher, PT_Sans_Narrow } from "next/font/google";
-import "@styles/globals.scss";
+import "./globals.scss";
 import Header from "@layouts/Header";
 import Footer from "@layouts/Footer";
 import { AppProvider } from "@contexts/AppContext/AppProvider";

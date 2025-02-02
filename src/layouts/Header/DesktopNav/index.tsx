@@ -16,7 +16,7 @@ const DesktopNav = () => {
     >
       <Link
         href={"/"}
-        className={clsx(styles.drop, styles.alone, "p-2 lg:hidden xl:block")}
+        className={clsx(styles.drop, styles.alone, "!p-2 lg:hidden xl:block")}
         title="Головна"
       >
         <Image
@@ -130,7 +130,7 @@ const DesktopNav = () => {
       <div className="flex shrink-0 flex-row gap-5">
         <Link
           href={"/live-stream"}
-          className={clsx(styles.drop, styles.alone, "p-2", {
+          className={clsx(styles.drop, styles.alone, "!p-2", {
             "motion-safe:animate-pulse": streamStatus.isOnline,
           })}
           title={
@@ -149,7 +149,7 @@ const DesktopNav = () => {
         </Link>
         <Link
           href={"/schedule"}
-          className={clsx(styles.drop, styles.alone, "p-2")}
+          className={clsx(styles.drop, styles.alone, "!p-2")}
           title="Розклад Богослужінь"
         >
           <Image
