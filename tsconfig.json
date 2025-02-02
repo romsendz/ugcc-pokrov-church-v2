@@ -21,7 +21,6 @@
     "paths": {
       "@components/*": ["./src/components/*"],
       "@lib/*": ["./src/lib/*"],
-      "@styles/*": ["./src/styles/*"],
       "@layouts/*": ["./src/layouts/*"],
       "@contexts/*": ["./src/contexts/*"],
       "@api/*": ["./src/app/api/*"]
