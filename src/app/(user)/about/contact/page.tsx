@@ -20,15 +20,16 @@ const Page = () => {
         <br />
         Тернопільська область
         <br />
-        <span className="inline-flex gap-2">
-          Україна
-          <Image
-            src={"/svgs/flag_ukraine.svg"}
-            alt="flag-ukraine"
-            width={24}
-            height={24}
-            title="Слава Україні! Glory to Ukraine!"
-          />
+        <span className="inline-flex items-center gap-2">
+          <span>Україна</span>
+          <span className="relative inline-block h-5 w-5">
+            <Image
+              src={"/svgs/flag_ukraine.svg"}
+              alt="flag-ukraine"
+              fill
+              title="Слава Україні! Glory to Ukraine!"
+            />
+          </span>
         </span>
         <br />
         48601
@@ -48,13 +49,16 @@ const Page = () => {
               className="rounded-2xl border-[0.25rem] border-[solid] border-[white] p-2 text-center"
               key={priest.name}
             >
-              <Image
-                className="mx-[auto] my-[0] rounded-2xl"
-                width={200}
-                height={200}
-                src={priest.photo}
-                alt={priest.name}
-              />
+              <div className="relative mx-[auto] my-[0] h-48 w-48">
+                <Image
+                  className="mx-[auto] my-[0] rounded-2xl"
+                  fill
+                  sizes=" (min-width: 640px) 200px, 100px"
+                  src={priest.photo}
+                  alt={priest.name}
+                />
+              </div>
+
               <h3>
                 {priest.name}
                 <br />
