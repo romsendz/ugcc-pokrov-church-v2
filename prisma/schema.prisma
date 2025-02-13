@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Day {
+  id         Int        @id @default(autoincrement())
+  date       DateTime   @db.Date
+  subtitle   String
+  created_at DateTime   @default(now())
+  is_holiday Boolean    @default(false)
+  updated_at DateTime   @updatedAt
+  entries    DayEntry[]
+
+  @@map("day")
+}
+
+model DayEntry {
+  title      String
+  day_id     Int
+  start_time String
+  id         String @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+  day        Day    @relation(fields: [day_id], references: [id], onDelete: Cascade)
+
+  @@map("day_entry")
+}
+
+model User {
+  id         Int       @id @default(autoincrement())
+  email      String    @unique
+  password   String
+  name       String
+  createdAt  DateTime  @map("created_at") @db.Timestamptz(6)
+  updatedAt  DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+  isVerified Boolean   @default(false) @map("is_verified")
+  deletedAt  DateTime? @map("deleted_at") @db.Timestamptz(6)
+
+  @@map("users")
+}
