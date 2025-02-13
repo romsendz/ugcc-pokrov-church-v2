@@ -1,5 +1,5 @@
-import { getDayToday } from "@lib/api/getDayToday";
-import Image from "next/image";
+import { getDayToday } from "@lib/fetch/getDayToday";
+import { ExternalLinkIcon } from "lucide-react";
 
 const DayToday = async () => {
   const dayData = await getDayToday();
@@ -10,18 +10,13 @@ const DayToday = async () => {
     >
       <div className="py-1 text-center text-base">
         <a
-          className="inline-flex gap-2 align-baseline"
+          className="inline-flex items-center gap-2"
           href="https://prayer-service.pp.ua/gregorian/"
           target="_blank"
           rel="noopener noreferrer"
         >
           Календар УГКЦ
-          <Image
-            src={"/svgs/external-link.svg"}
-            alt="Зовнішнє посилання"
-            width={10}
-            height={10}
-          />
+          <ExternalLinkIcon size={16} />
         </a>
       </div>
       <div className="mb-2 grid grid-cols-[1fr_5fr] gap-4 rounded-lg bg-slate-300 p-2">

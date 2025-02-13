@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 import { useAppContext } from "@contexts/AppContext/useAppContext";
-import { getStreamStatus } from "@lib/api/getStreamStatus";
+import { getStreamStatus } from "@lib/fetch/getStreamStatus";
 
 export default function DataFetcher() {
   const pathname = usePathname(); // Detects route changes

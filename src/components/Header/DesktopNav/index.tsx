@@ -1,8 +1,14 @@
 import clsx from "clsx";
-import Image from "next/image";
 import Link from "next/link";
 import styles from "./index.module.scss";
 import { useAppContext } from "@contexts/AppContext/useAppContext";
+import {
+  CalendarDaysIcon,
+  ChevronDownIcon,
+  ChurchIcon,
+  ExternalLinkIcon,
+  TvIcon,
+} from "lucide-react";
 
 const DesktopNav = () => {
   const { streamStatus } = useAppContext();
@@ -19,19 +25,16 @@ const DesktopNav = () => {
         className={clsx(styles.drop, styles.alone, "!p-2 lg:hidden xl:block")}
         title="Головна"
       >
-        <Image
+        <ChurchIcon
+          color="beige"
           className="mx-[0] my-[auto] hidden lg:block"
-          width={20}
-          height={20}
-          src={"/svgs/church.svg"}
-          alt="Церква"
         />
       </Link>
       <div className="flex flex-row gap-5">
         <div className={styles.drop}>
-          <span className="flex items-baseline justify-center gap-2 font-bold">
+          <span className="flex items-center justify-center gap-2 font-bold">
             Проєкти
-            <Image src={"/svgs/arrow.svg"} alt="arrow" width={10} height={10} />
+            <ChevronDownIcon size={12} />
           </span>
           <ul className={clsx("!px-2", styles.list)}>
             <li>
@@ -39,18 +42,13 @@ const DesktopNav = () => {
                 href={"https://www.facebook.com/profile.php?id=100064304162104"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex gap-2 align-baseline text-brand"
+                className="group inline-flex items-center gap-2 text-brand"
               >
                 Освітня програма{" "}
                 <span className="group-hover:text-green-600">
                   <b>ДРУЗІ</b>
                 </span>
-                <Image
-                  src={"/svgs/external-link-light.svg"}
-                  alt="Зовнішнє посилання"
-                  width={10}
-                  height={10}
-                />
+                <ExternalLinkIcon size={15} />
               </a>
             </li>
             <li>
@@ -58,26 +56,21 @@ const DesktopNav = () => {
                 href={"https://www.facebook.com/groups/262819928471960"}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex gap-2 align-baseline text-brand"
+                className="group inline-flex items-center gap-2 text-brand"
               >
                 Благодійна кухня{" "}
                 <span className="group-hover:text-amber-950">
                   <b>5 ХЛІБІВ</b>
                 </span>
-                <Image
-                  src={"/svgs/external-link-light.svg"}
-                  alt="Зовнішнє посилання"
-                  width={10}
-                  height={10}
-                />
+                <ExternalLinkIcon size={15} />
               </a>
             </li>
           </ul>
         </div>
         <div className={styles.drop}>
-          <span className="flex items-baseline justify-center gap-2 font-bold">
+          <span className="flex items-center justify-center gap-2 font-bold">
             Спільноти
-            <Image src={"/svgs/arrow.svg"} alt="arrow" width={10} height={10} />
+            <ChevronDownIcon size={12} />
           </span>
           <ul className={clsx("!px-2", styles.list)}>
             <li>
@@ -106,7 +99,7 @@ const DesktopNav = () => {
         <div className={styles.drop}>
           <span className="flex items-baseline justify-center gap-2 font-bold">
             Про парафію
-            <Image src={"/svgs/arrow.svg"} alt="arrow" width={10} height={10} />
+            <ChevronDownIcon size={12} />
           </span>
           <ul className={clsx("!px-2", styles.list)}>
             <li>
@@ -139,25 +132,16 @@ const DesktopNav = () => {
               : "Пряма трансляція"
           }
         >
-          <Image
-            className="mx-[0] my-[auto] hidden lg:block"
-            width={20}
-            height={20}
-            src={"/svgs/tv-light.svg"}
-            alt="tv"
-          />
+          <TvIcon className="mx-[0] my-[auto] hidden lg:block" color="beige" />
         </Link>
         <Link
           href={"/schedule"}
           className={clsx(styles.drop, styles.alone, "!p-2")}
           title="Розклад Богослужінь"
         >
-          <Image
+          <CalendarDaysIcon
             className="mx-[0] my-[auto] hidden lg:block"
-            width={20}
-            height={20}
-            src={"/svgs/schedule-light.svg"}
-            alt="schedule"
+            color="beige"
           />
         </Link>
       </div>

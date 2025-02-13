@@ -5,6 +5,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import styles from "./index.module.scss";
+import {
+  CalendarDaysIcon,
+  ExternalLinkIcon,
+  MenuIcon,
+  XIcon,
+} from "lucide-react";
 
 const MobileNav = () => {
   const { isMenuOpen, setIsMenuOpen } = useAppContext();
@@ -37,12 +43,7 @@ const MobileNav = () => {
   return (
     <>
       <button onClick={handleMenu} className="ml-auto shrink-0 lg:hidden">
-        <Image
-          src={isMenuOpen ? "/svgs/close.svg" : "/svgs/menu-burger.svg"}
-          alt={isMenuOpen ? "menu close" : "menu"}
-          width={30}
-          height={30}
-        />
+        {isMenuOpen ? <XIcon size={32} /> : <MenuIcon size={32} />}
       </button>
       <div
         className={clsx("lg:hidden", styles.nav_mobile, {
@@ -71,12 +72,7 @@ const MobileNav = () => {
                   className="flex items-center justify-center"
                   href={"/schedule"}
                 >
-                  <Image
-                    width={25}
-                    height={25}
-                    src={"/svgs/schedule.svg"}
-                    alt="calendar"
-                  />
+                  <CalendarDaysIcon />
                 </Link>
               </li>
             </ul>
@@ -84,7 +80,7 @@ const MobileNav = () => {
             <ul className="flex flex-col gap-2">
               <li>
                 <a
-                  className="inline-flex gap-2 align-baseline hover:underline"
+                  className="inline-flex items-center gap-2 hover:underline"
                   href={
                     "https://www.facebook.com/profile.php?id=100064304162104"
                   }
@@ -95,17 +91,12 @@ const MobileNav = () => {
                   <span className="text-green-600">
                     <b>ДРУЗІ</b>
                   </span>
-                  <Image
-                    src={"/svgs/external-link.svg"}
-                    alt="Зовнішнє посилання"
-                    width={10}
-                    height={10}
-                  />
+                  <ExternalLinkIcon size={16} />
                 </a>
               </li>
               <li>
                 <a
-                  className="inline-flex gap-2 align-baseline hover:underline"
+                  className="inline-flex items-center gap-2 hover:underline"
                   href={"https://www.facebook.com/groups/262819928471960"}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -114,12 +105,7 @@ const MobileNav = () => {
                   <span className="text-amber-700">
                     <b>5 ХЛІБІВ</b>
                   </span>
-                  <Image
-                    src={"/svgs/external-link.svg"}
-                    alt="Зовнішнє посилання"
-                    width={10}
-                    height={10}
-                  />
+                  <ExternalLinkIcon size={16} />
                 </a>
               </li>
             </ul>
@@ -171,37 +157,25 @@ const MobileNav = () => {
                 href="https://www.facebook.com/ugccpokrovzalishchyky/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="relative inline-block h-10 w-10"
               >
-                <Image
-                  src={"/svgs/facebook.svg"}
-                  alt={"facebook"}
-                  width={50}
-                  height={50}
-                />
+                <Image src={"/svgs/facebook.svg"} alt={"facebook"} fill />
               </a>
               <a
                 href="https://www.youtube.com/@%D0%A5%D1%80%D0%B0%D0%BC%D0%9F%D0%BE%D0%BA%D1%80%D0%BE%D0%B2%D0%B8%D0%9F%D1%80%D0%B5%D1%81%D0%B2%D1%8F%D1%82%D0%BE%D1%97%D0%91%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B8%D1%86%D1%96"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="relative inline-block h-10 w-10"
               >
-                <Image
-                  src={"/svgs/youtube.svg"}
-                  alt={"youtube"}
-                  width={50}
-                  height={50}
-                />
+                <Image src={"/svgs/youtube.svg"} alt={"youtube"} fill />
               </a>
               <a
                 href="https://uk.wikipedia.org/wiki/%D0%A6%D0%B5%D1%80%D0%BA%D0%B2%D0%B0_%D0%9F%D0%BE%D0%BA%D1%80%D0%BE%D0%B2%D0%B8_%D0%9F%D1%80%D0%B5%D1%81%D0%B2%D1%8F%D1%82%D0%BE%D1%97_%D0%91%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B8%D1%86%D1%96_(%D0%97%D0%B0%D0%BB%D1%96%D1%89%D0%B8%D0%BA%D0%B8)"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="relative inline-block h-10 w-10"
               >
-                <Image
-                  src={"/svgs/wikipedia.svg"}
-                  alt={"wikipedia"}
-                  width={50}
-                  height={50}
-                />
+                <Image src={"/svgs/wikipedia.svg"} alt={"wikipedia"} fill />
               </a>
             </div>
           </nav>
