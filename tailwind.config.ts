@@ -1,7 +1,9 @@
 import type { Config } from "tailwindcss";
 import typography from "@tailwindcss/typography";
+import animate from "tailwindcss-animate";
 
 export default {
+  darkMode: ["class"],
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/layouts/**/*.{js,ts,jsx,tsx,mdx}",
@@ -27,24 +29,48 @@ export default {
         heroVideoCoverFadeOutDesktop:
           "heroVideoCoverFadeOutDesktop 37s ease-in-out forwards",
       },
-
       keyframes: {
         heroVideoCoverFadeMobile: {
-          "0%": { opacity: "1" },
-          "18%": { opacity: "1" },
-          "20%": { opacity: "0" },
-          "98%": { opacity: "0" },
-          "100%": { opacity: "1" },
+          "0%": {
+            opacity: "1",
+          },
+          "18%": {
+            opacity: "1",
+          },
+          "20%": {
+            opacity: "0",
+          },
+          "98%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "1",
+          },
         },
         heroVideoCoverFadeOutDesktop: {
-          "0%": { opacity: "1" },
-          "3%": { opacity: "1" },
-          "7%": { opacity: "0" },
-          "98%": { opacity: "0" },
-          "100%": { opacity: "1" },
+          "0%": {
+            opacity: "1",
+          },
+          "3%": {
+            opacity: "1",
+          },
+          "7%": {
+            opacity: "0",
+          },
+          "98%": {
+            opacity: "0",
+          },
+          "100%": {
+            opacity: "1",
+          },
         },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
     },
   },
-  plugins: [typography()],
+  plugins: [typography(), animate],
 } satisfies Config;
