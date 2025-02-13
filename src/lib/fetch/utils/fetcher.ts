@@ -1,4 +1,4 @@
-import { getApiUrl } from "@lib/utils/getApiUrl";
+import { getApiUrl } from "./getApiUrl";
 
 export async function fetcher(url: string, options?: RequestInit) {
   const apiUrl = getApiUrl(url);
