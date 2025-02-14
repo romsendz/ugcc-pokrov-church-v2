@@ -29,7 +29,9 @@ const HeroVideo = () => {
       {/* enable image if youtube API does not loop video */}
       <Image
         className="hidden lg:block lg:animate-heroVideoCoverFadeOutDesktop"
+        priority={true}
         fill
+        sizes="(max-width: 1023px) 100vw, 1024px"
         alt="Фото парафії"
         src="/img/bg-video-fallback.webp"
       />

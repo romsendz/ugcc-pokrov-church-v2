@@ -1,8 +1,8 @@
 import HeroVideo from "@components/HeroVideo";
 import Link from "next/link";
 import LiveStreamButton from "@components/LiveStreamButton";
-import Image from "next/image";
 import DayToday from "@components/DayToday";
+import { CalendarDaysIcon } from "lucide-react";
 
 export default function Home() {
   return (
@@ -29,19 +29,15 @@ export default function Home() {
             <span className="text-center text-xl font-bold lg:text-base lg:text-brand xl:text-lg">
               Розклад <br className="sm:hidden" /> Богослужінь
             </span>
-            <Image
+            <CalendarDaysIcon
               className="mx-[0] my-[auto] lg:hidden"
-              width={35}
-              height={35}
-              src={"/svgs/schedule.svg"}
-              alt="calendar"
+              color="black"
+              size={35}
             />
-            <Image
+            <CalendarDaysIcon
               className="mx-[0] my-[auto] hidden lg:mx-[auto] lg:my-[0] lg:block"
-              width={25}
-              height={25}
-              src={"/svgs/schedule-light.svg"}
-              alt="calendar"
+              color="beige"
+              size={25}
             />
           </Link>
         </div>

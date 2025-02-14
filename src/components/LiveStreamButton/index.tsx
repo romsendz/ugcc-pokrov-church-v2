@@ -4,7 +4,7 @@ import ButtonLink, { ButtonLinkProps } from "@components/ButtonLink";
 import styles from "./index.module.scss";
 import clsx from "clsx";
 import { useAppContext } from "@contexts/AppContext/useAppContext";
-import Image from "next/image";
+import { TvIcon } from "lucide-react";
 
 type LiveStreamButtonProps = Omit<ButtonLinkProps, "href" | "children"> & {
   noLink?: boolean;
@@ -21,20 +21,12 @@ const LiveStreamButton = ({ noLink, ...props }: LiveStreamButtonProps) => {
   if (notAvailable) {
     return (
       <>
-        <Image
+        <TvIcon
           className="mx-[0] my-[auto] hidden lg:block"
-          width={25}
-          height={25}
-          src={"/svgs/tv-light.svg"}
-          alt="tv"
+          color="beige"
+          size={25}
         />
-        <Image
-          className="mx-[0] my-[auto] lg:hidden"
-          width={35}
-          height={35}
-          src={"/svgs/tv.svg"}
-          alt="tv"
-        />
+        <TvIcon className="mx-[0] my-[auto] lg:hidden" size={35} />
       </>
     );
   }

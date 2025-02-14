@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Philosopher, PT_Sans_Narrow } from "next/font/google";
-import "./globals.scss";
-import Header from "@layouts/Header";
-import Footer from "@layouts/Footer";
+import "./globals.user.scss";
+import Header from "@components/Header";
+import Footer from "@components/Footer";
 import { AppProvider } from "@contexts/AppContext/AppProvider";
 import StreamStatusFetcher from "@components/StreamStatusFetcher";
-import { getStreamStatus } from "@lib/api/getStreamStatus";
+import { getStreamStatus } from "@lib/fetch/getStreamStatus";
 import { LiveStreamResponse } from "@api/live-stream/route";
 import clsx from "clsx";
 import { SpeedInsights } from "@vercel/speed-insights/next";

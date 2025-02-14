@@ -1,6 +1,6 @@
 "use client";
 import { useAppContext } from "@contexts/AppContext/useAppContext";
-import Image from "next/image";
+import { BadgeInfoIcon } from "lucide-react";
 import Link from "next/link";
 
 const Page = () => {
@@ -17,7 +17,7 @@ const Page = () => {
         />
       )}
       <div className="mx-[auto] my-[0] mt-4 flex flex-grow flex-col items-center justify-center rounded-2xl p-4 [box-shadow:rgba(0,_0,_0,_0.56)_0px_22px_70px_4px] lg:w-1/2">
-        <Image src={"/svgs/attention.svg"} alt="info" width={45} height={45} />
+        <BadgeInfoIcon size={45} />
         <p className="text-center">
           <b>Пряма трансляція Богослужінь</b> доступна <b>кожної неділі</b> та{" "}
           <b>у свята</b>. <br /> Для детальнішої інформації ознайомтесь із{" "}
