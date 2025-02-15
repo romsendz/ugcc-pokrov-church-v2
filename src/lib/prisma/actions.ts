@@ -2,6 +2,7 @@
 
 import { prisma } from "@lib/prisma/prisma";
 import { ScheduleFormValues } from "@lib/zod-validation/scheduleFormSchema";
+import { revalidatePath } from "next/cache";
 
 export async function updateSchedule(data: ScheduleFormValues) {
   // implement validation with zod later
@@ -27,6 +28,10 @@ export async function updateSchedule(data: ScheduleFormValues) {
         });
       }),
     );
+
+    // Revalidate the paths to ensure the updated schedule is fetched
+    revalidatePath("/admin/schedule");
+    revalidatePath("/schedule");
 
     return { success: true, message: "Schedule updated successfully!" };
   } catch (error) {
