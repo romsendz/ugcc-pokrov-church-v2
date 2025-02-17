@@ -3,6 +3,7 @@
 import { Button } from "@components/components/ui/button";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogHeader,
@@ -87,8 +88,9 @@ const SignUpForm = () => {
       }
 
       toast({ variant: "success", description: "Реєстрація успішна" });
-      router.push("/admin/sign-in");
+      router.push("/auth/sign-in");
     } catch (error: unknown) {
+      console.error(error);
       toast({
         title: "Помилка",
         variant: "destructive",
@@ -102,9 +104,10 @@ const SignUpForm = () => {
     <>
       <Dialog
         open={verificationAlert.isOpen}
-        onOpenChange={(isOpen) =>
-          setVerificationAlert((prev) => ({ ...prev, isOpen }))
-        }
+        onOpenChange={(isOpen) => {
+          setVerificationAlert((prev) => ({ ...prev, isOpen }));
+          if (!isOpen) router.push("/auth/sign-in");
+        }}
       >
         <DialogContent>
           <DialogHeader>
@@ -136,16 +139,18 @@ const SignUpForm = () => {
             реєстрації.
           </span>
           <br />
-          <Button
-            onClick={() =>
-              setVerificationAlert((prevState) => ({
-                ...prevState,
-                isOpen: false,
-              }))
-            }
-          >
-            Зрозуміло
-          </Button>
+          <DialogClose>
+            <Button
+              onClick={() =>
+                setVerificationAlert((prevState) => ({
+                  ...prevState,
+                  isOpen: false,
+                }))
+              }
+            >
+              Зрозуміло
+            </Button>
+          </DialogClose>
         </DialogContent>
       </Dialog>
       <Form {...form}>
