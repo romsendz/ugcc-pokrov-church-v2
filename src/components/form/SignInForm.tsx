@@ -20,6 +20,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogHeader,
@@ -55,13 +56,10 @@ const SignInForm = () => {
     reValidateMode: "onChange", // Revalidate on change,
   });
 
-  const { formState } = form;
+  const { formState, reset } = form;
 
   const onSubmit = async (values: SignInFormValues) => {
     try {
-      const callbackUrl =
-        new URLSearchParams(window.location.search).get("callbackUrl") ||
-        "/admin";
       const response = await signIn("credentials", {
         email: values.email,
         password: values.password,
@@ -92,6 +90,7 @@ const SignInForm = () => {
       });
       router.replace("/admin");
     } catch (error: unknown) {
+      console.error(error);
       toast({
         title: "Помилка",
         variant: "destructive",
@@ -105,9 +104,10 @@ const SignInForm = () => {
     <>
       <Dialog
         open={verificationAlert.isOpen}
-        onOpenChange={(isOpen) =>
-          setVerificationAlert((prev) => ({ ...prev, isOpen }))
-        }
+        onOpenChange={(isOpen) => {
+          setVerificationAlert((prev) => ({ ...prev, isOpen }));
+          if (!isOpen) reset();
+        }}
       >
         <DialogContent>
           <DialogHeader>
@@ -139,16 +139,18 @@ const SignInForm = () => {
             реєстрації.
           </span>
           <br />
-          <Button
-            onClick={() =>
-              setVerificationAlert((prevState) => ({
-                ...prevState,
-                isOpen: false,
-              }))
-            }
-          >
-            Зрозуміло
-          </Button>
+          <DialogClose>
+            <Button
+              onClick={() =>
+                setVerificationAlert((prevState) => ({
+                  ...prevState,
+                  isOpen: false,
+                }))
+              }
+            >
+              Зрозуміло
+            </Button>
+          </DialogClose>
         </DialogContent>
       </Dialog>
       <Form {...form}>
