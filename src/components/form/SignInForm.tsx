@@ -90,7 +90,7 @@ const SignInForm = () => {
         variant: "success",
         description: `Ви успішно увійшли.`,
       });
-      router.push(callbackUrl);
+      router.replace("/admin");
     } catch (error: unknown) {
       toast({
         title: "Помилка",
@@ -220,7 +220,7 @@ const SignInForm = () => {
         </div>
         <p className="mt-2 text-center text-sm text-gray-600">
           Якщо у вас немає облікового запису,{" "}
-          <Link className="text-blue-500 hover:underline" href="/admin/sign-up">
+          <Link className="text-blue-500 hover:underline" href="/auth/sign-up">
             подайте запит на його створення.
           </Link>
         </p>

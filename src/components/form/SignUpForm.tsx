@@ -261,7 +261,7 @@ const SignUpForm = () => {
         </div>
         <p className="mt-2 text-center text-sm text-gray-600">
           Якщо ви вже зареєстровані та верифіковані, будь ласка,{" "}
-          <Link className="text-blue-500 hover:underline" href="/admin/sign-in">
+          <Link className="text-blue-500 hover:underline" href="/auth/sign-in">
             увійдіть
           </Link>
         </p>
