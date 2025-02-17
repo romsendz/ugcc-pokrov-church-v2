@@ -1,7 +1,7 @@
 import { CalendarCheckIcon } from "lucide-react";
 import Link from "next/link";
 
-const Page = async () => {
+const Page = () => {
   return (
     <div className="m-10 grid p-6">
       <ul className="grid grid-cols-5 gap-4">
