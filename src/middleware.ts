@@ -1,22 +1,21 @@
-import { withAuth } from "next-auth/middleware";
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
+import { getToken } from "next-auth/jwt";
 
-export default withAuth({
-  callbacks: {
-    authorized: ({ req, token }) => {
-      // Allow access to sign-in and sign-up pages for unauthenticated users
-      const isAuthPage =
-        req.nextUrl.pathname.startsWith("/admin/sign-in") ||
-        req.nextUrl.pathname.startsWith("/admin/sign-up");
+export async function middleware(req: NextRequest) {
+  const session = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
 
-      if (isAuthPage) {
-        return true; // Allow access without authentication
-      }
+  const { pathname } = req.nextUrl;
 
-      return !!token; // Allow only authenticated users to other /admin routes
-    },
-  },
-});
+  // Protect `/admin` routes - redirect unauthenticated users
+  if (!session && pathname.startsWith("/admin")) {
+    return NextResponse.redirect(new URL("/auth/sign-in", req.url));
+  }
 
+  return NextResponse.next();
+}
+
+// Apply middleware to all /admin routes
 export const config = {
-  matcher: ["/admin/:path*"], // Protect all /admin routes
+  matcher: ["/admin/:path*"],
 };
