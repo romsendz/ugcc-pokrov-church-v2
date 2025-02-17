@@ -76,16 +76,5 @@ export const authOptions: NextAuthOptions = {
       session.user.createdAt = token.createdAt;
       return session;
     },
-    async redirect({ url, baseUrl }) {
-      try {
-        const parsedUrl = new URL(url, baseUrl);
-        if (parsedUrl.origin === baseUrl) {
-          return parsedUrl.href;
-        }
-      } catch {
-        console.warn("Invalid redirect URL:", url);
-      }
-      return baseUrl + "/admin"; // Default safe fallback
-    },
   },
 };
