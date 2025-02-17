@@ -30,6 +30,7 @@ import {
   SignInFormSchema,
   SignInFormValues,
 } from "@lib/zod-validation/signInSchema";
+import { ROUTES } from "@lib/routes";
 
 const SignInForm = () => {
   const router = useRouter();
@@ -88,7 +89,7 @@ const SignInForm = () => {
         variant: "success",
         description: `Ви успішно увійшли.`,
       });
-      router.replace("/admin");
+      router.replace(ROUTES.admin.index);
     } catch (error: unknown) {
       console.error(error);
       toast({
@@ -222,7 +223,10 @@ const SignInForm = () => {
         </div>
         <p className="mt-2 text-center text-sm text-gray-600">
           Якщо у вас немає облікового запису,{" "}
-          <Link className="text-blue-500 hover:underline" href="/auth/sign-up">
+          <Link
+            className="text-blue-500 hover:underline"
+            href={ROUTES.auth.signUp}
+          >
             подайте запит на його створення.
           </Link>
         </p>

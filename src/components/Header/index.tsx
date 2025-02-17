@@ -5,10 +5,11 @@ import { usePathname } from "next/navigation";
 import MobileNav from "./MobileNav";
 import DesktopNav from "./DesktopNav";
 import Logo from "@components/Logo";
+import { ROUTES } from "@lib/routes";
 
 const Header = () => {
   const pathname = usePathname();
-  const isHomePage = pathname === "/";
+  const isHomePage = pathname === ROUTES.index;
   return (
     <>
       <header

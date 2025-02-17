@@ -1,4 +1,5 @@
 import SignOutButton from "@components/SignOutButton";
+import { ROUTES } from "@lib/routes";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,7 +8,7 @@ export default function AdminHeader() {
     <header>
       <nav className="flex w-full items-center justify-between bg-slate-50 px-6 py-3 shadow-md">
         <Link
-          href={"/admin"}
+          href={ROUTES.admin.index}
           prefetch={false} // required for next-auth and middleware work as expected
           className="flex items-center space-x-3 rounded-md p-2 transition-colors hover:bg-slate-300"
         >

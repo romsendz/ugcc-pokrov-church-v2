@@ -1,4 +1,5 @@
 import { useAppContext } from "@contexts/AppContext/useAppContext";
+import { ROUTES } from "@lib/routes";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -9,7 +10,11 @@ const Logo = () => {
     if (isMenuOpen) setIsMenuOpen(false);
   };
   return (
-    <Link href="/" className="flex items-center gap-1" onClick={handleMenu}>
+    <Link
+      href={ROUTES.index}
+      className="flex items-center gap-1"
+      onClick={handleMenu}
+    >
       <div className="relative h-16 w-16 xl:h-24 xl:w-24">
         <Image src="/svgs/logo.svg" alt="logo" fill />
       </div>

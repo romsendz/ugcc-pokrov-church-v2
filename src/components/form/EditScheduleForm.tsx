@@ -31,6 +31,7 @@ import {
   scheduleFormSchema,
   ScheduleFormValues,
 } from "@lib/zod-validation/scheduleFormSchema";
+import { ROUTES } from "@lib/routes";
 
 // Function to calculate dates for "current" and "next" week
 const getWeekDates = (weekType: "current" | "next") => {
@@ -121,7 +122,7 @@ const EditScheduleForm = ({ schedule }: EditScheduleFormProps) => {
       variant: "success",
       description: "Розклад успішно оновлено",
     });
-    router.push("/admin/schedule");
+    router.push(ROUTES.admin.schedule.index);
   };
 
   const selectedWeek = form.watch("selectedWeek");

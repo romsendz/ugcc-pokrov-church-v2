@@ -5,6 +5,7 @@ import Link from "next/link";
 import { EditIcon } from "lucide-react";
 import SchedulePrint from "@components/SchedulePrint";
 import SchedulePreview from "@components/SchedulePreview";
+import { ROUTES } from "@lib/routes";
 
 const Page = async () => {
   const schedule = await getSchedule();
@@ -20,7 +21,7 @@ const Page = async () => {
       <div className="flex justify-end gap-4">
         <SchedulePrint schedule={schedule} />
         <Link
-          href="/admin/schedule/edit"
+          href={ROUTES.admin.schedule.edit}
           className={clsx(buttonVariants({ variant: "main-action" }))}
         >
           Оновити розклад

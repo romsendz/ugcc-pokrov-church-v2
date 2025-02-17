@@ -5,6 +5,7 @@ import styles from "./index.module.scss";
 import clsx from "clsx";
 import { useAppContext } from "@contexts/AppContext/useAppContext";
 import { TvIcon } from "lucide-react";
+import { ROUTES } from "@lib/routes";
 
 type LiveStreamButtonProps = Omit<ButtonLinkProps, "href" | "children"> & {
   noLink?: boolean;
@@ -54,7 +55,7 @@ const LiveStreamButton = ({ noLink, ...props }: LiveStreamButtonProps) => {
     <ButtonLink
       title={title}
       disabled={!streamIsLive}
-      href={"/live-stream"}
+      href={ROUTES.liveStream}
       className={className}
       {...props}
     >

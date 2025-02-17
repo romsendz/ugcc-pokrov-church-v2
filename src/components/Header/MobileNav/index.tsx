@@ -11,6 +11,7 @@ import {
   MenuIcon,
   XIcon,
 } from "lucide-react";
+import { ROUTES } from "@lib/routes";
 
 const MobileNav = () => {
   const { isMenuOpen, setIsMenuOpen } = useAppContext();
@@ -54,23 +55,23 @@ const MobileNav = () => {
           <nav onClick={handleMenuClick}>
             <ul className="flex flex-col gap-5">
               <li>
-                <Link className="hover:underline" href={"/"}>
+                <Link className="hover:underline" href={ROUTES.index}>
                   Головна
                 </Link>
               </li>
               <li className="flex gap-3">
-                <Link className="hover:underline" href={"/live-stream"}>
+                <Link className="hover:underline" href={ROUTES.liveStream}>
                   Пряма трансляція
                 </Link>
                 <LiveStreamButton />
               </li>
               <li className="flex gap-3">
-                <Link className="hover:underline" href={"/schedule"}>
+                <Link className="hover:underline" href={ROUTES.schedule}>
                   Розклад Богослужінь
                 </Link>
                 <Link
                   className="flex items-center justify-center"
-                  href={"/schedule"}
+                  href={ROUTES.schedule}
                 >
                   <CalendarDaysIcon />
                 </Link>
@@ -81,9 +82,7 @@ const MobileNav = () => {
               <li>
                 <a
                   className="inline-flex items-center gap-2 hover:underline"
-                  href={
-                    "https://www.facebook.com/profile.php?id=100064304162104"
-                  }
+                  href={ROUTES.EXTERNAL.facebookFriends}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -97,7 +96,7 @@ const MobileNav = () => {
               <li>
                 <a
                   className="inline-flex items-center gap-2 hover:underline"
-                  href={"https://www.facebook.com/groups/262819928471960"}
+                  href={ROUTES.EXTERNAL.facebook5Breads}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -114,7 +113,7 @@ const MobileNav = () => {
               <li>
                 <Link
                   className="hover:underline"
-                  href={"/communities/mothers-are-praying"}
+                  href={ROUTES.communities.mothersArePraying}
                 >
                   Матері в молитві
                 </Link>
@@ -122,13 +121,16 @@ const MobileNav = () => {
               <li>
                 <Link
                   className="hover:underline"
-                  href={"/communities/apostleship-of-prayer"}
+                  href={ROUTES.communities.apostleshipOfPrayer}
                 >
                   Апостольство молитви
                 </Link>
               </li>
               <li>
-                <Link className="hover:underline" href={"/communities/homin"}>
+                <Link
+                  className="hover:underline"
+                  href={ROUTES.communities.homin}
+                >
                   Хорова капела <b>ГОМІН</b>
                 </Link>
               </li>
@@ -136,17 +138,17 @@ const MobileNav = () => {
             <h3>Про Парафію</h3>
             <ul className="flex flex-col gap-2">
               <li>
-                <Link className="hover:underline" href={"/about/history"}>
+                <Link className="hover:underline" href={ROUTES.about.history}>
                   Історія
                 </Link>
               </li>
               <li>
-                <Link className="hover:underline" href={"/about/monastery"}>
+                <Link className="hover:underline" href={ROUTES.about.monastery}>
                   Монастир <b>ССНДМ</b>
                 </Link>
               </li>
               <li>
-                <Link className="hover:underline" href={"/about/contact"}>
+                <Link className="hover:underline" href={ROUTES.about.contact}>
                   Контакти
                 </Link>
               </li>
@@ -154,7 +156,7 @@ const MobileNav = () => {
             <h3>Соціальні мережі</h3>
             <div className="flex items-center gap-5">
               <a
-                href="https://www.facebook.com/ugccpokrovzalishchyky/"
+                href={ROUTES.EXTERNAL.facebookChurch}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative inline-block h-10 w-10"
@@ -162,7 +164,7 @@ const MobileNav = () => {
                 <Image src={"/svgs/facebook.svg"} alt={"facebook"} fill />
               </a>
               <a
-                href="https://www.youtube.com/@%D0%A5%D1%80%D0%B0%D0%BC%D0%9F%D0%BE%D0%BA%D1%80%D0%BE%D0%B2%D0%B8%D0%9F%D1%80%D0%B5%D1%81%D0%B2%D1%8F%D1%82%D0%BE%D1%97%D0%91%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B8%D1%86%D1%96"
+                href={ROUTES.EXTERNAL.youtubeChurch}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative inline-block h-10 w-10"
@@ -170,7 +172,7 @@ const MobileNav = () => {
                 <Image src={"/svgs/youtube.svg"} alt={"youtube"} fill />
               </a>
               <a
-                href="https://uk.wikipedia.org/wiki/%D0%A6%D0%B5%D1%80%D0%BA%D0%B2%D0%B0_%D0%9F%D0%BE%D0%BA%D1%80%D0%BE%D0%B2%D0%B8_%D0%9F%D1%80%D0%B5%D1%81%D0%B2%D1%8F%D1%82%D0%BE%D1%97_%D0%91%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B8%D1%86%D1%96_(%D0%97%D0%B0%D0%BB%D1%96%D1%89%D0%B8%D0%BA%D0%B8)"
+                href={ROUTES.EXTERNAL.wikipediaChurch}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative inline-block h-10 w-10"

@@ -9,6 +9,7 @@ import {
   ExternalLinkIcon,
   TvIcon,
 } from "lucide-react";
+import { ROUTES } from "@lib/routes";
 
 const DesktopNav = () => {
   const { streamStatus } = useAppContext();
@@ -21,7 +22,7 @@ const DesktopNav = () => {
       )}
     >
       <Link
-        href={"/"}
+        href={ROUTES.index}
         className={clsx(styles.drop, styles.alone, "!p-2 lg:hidden xl:block")}
         title="Головна"
       >
@@ -39,7 +40,7 @@ const DesktopNav = () => {
           <ul className={clsx("!px-2", styles.list)}>
             <li>
               <a
-                href={"https://www.facebook.com/profile.php?id=100064304162104"}
+                href={ROUTES.EXTERNAL.facebookFriends}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 text-brand"
@@ -53,7 +54,7 @@ const DesktopNav = () => {
             </li>
             <li>
               <a
-                href={"https://www.facebook.com/groups/262819928471960"}
+                href={ROUTES.EXTERNAL.facebook5Breads}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2 text-brand"
@@ -76,7 +77,7 @@ const DesktopNav = () => {
             <li>
               <Link
                 className="text-brand"
-                href={"/communities/mothers-are-praying"}
+                href={ROUTES.communities.mothersArePraying}
               >
                 Матері в молитві
               </Link>
@@ -84,13 +85,13 @@ const DesktopNav = () => {
             <li>
               <Link
                 className="text-brand"
-                href={"/communities/apostleship-of-prayer"}
+                href={ROUTES.communities.apostleshipOfPrayer}
               >
                 Апостольство молитви
               </Link>
             </li>
             <li>
-              <Link className="text-brand" href={"/communities/homin"}>
+              <Link className="text-brand" href={ROUTES.communities.homin}>
                 Хорова капела <b>ГОМІН</b>
               </Link>
             </li>
@@ -103,17 +104,17 @@ const DesktopNav = () => {
           </span>
           <ul className={clsx("!px-2", styles.list)}>
             <li>
-              <Link className="text-brand" href={"/about/history"}>
+              <Link className="text-brand" href={ROUTES.about.history}>
                 Історія
               </Link>
             </li>
             <li>
-              <Link className="text-brand" href={"/about/monastery"}>
+              <Link className="text-brand" href={ROUTES.about.monastery}>
                 Монастир ССНДМ
               </Link>
             </li>
             <li>
-              <Link className="text-brand" href={"/about/contact"}>
+              <Link className="text-brand" href={ROUTES.about.contact}>
                 Контакти
               </Link>
             </li>
@@ -122,7 +123,7 @@ const DesktopNav = () => {
       </div>
       <div className="flex shrink-0 flex-row gap-5">
         <Link
-          href={"/live-stream"}
+          href={ROUTES.liveStream}
           className={clsx(styles.drop, styles.alone, "!p-2", {
             "motion-safe:animate-pulse": streamStatus.isOnline,
           })}
@@ -135,7 +136,7 @@ const DesktopNav = () => {
           <TvIcon className="mx-[0] my-[auto] hidden lg:block" color="beige" />
         </Link>
         <Link
-          href={"/schedule"}
+          href={ROUTES.schedule}
           className={clsx(styles.drop, styles.alone, "!p-2")}
           title="Розклад Богослужінь"
         >

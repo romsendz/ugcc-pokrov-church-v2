@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 import { getToken } from "next-auth/jwt";
+import { ROUTES } from "@lib/routes";
 
 export async function middleware(req: NextRequest) {
   const session = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
@@ -8,8 +9,8 @@ export async function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
 
   // Protect `/admin` routes - redirect unauthenticated users
-  if (!session && pathname.startsWith("/admin")) {
-    return NextResponse.redirect(new URL("/auth/sign-in", req.url));
+  if (!session && pathname.startsWith(ROUTES.admin.index)) {
+    return NextResponse.redirect(new URL(ROUTES.auth.signIn, req.url));
   }
 
   return NextResponse.next();

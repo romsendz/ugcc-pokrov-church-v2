@@ -20,6 +20,7 @@ import {
 import { Input } from "@components/components/ui/input";
 import { useToast } from "@components/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { ROUTES } from "@lib/routes";
 import {
   SignUpFormSchema,
   SignUpFormValues,
@@ -86,9 +87,8 @@ const SignUpForm = () => {
         }
         throw new Error(data.message || "Сталася помилка. Спробуйте знову.");
       }
-
       toast({ variant: "success", description: "Реєстрація успішна" });
-      router.push("/auth/sign-in");
+      router.push(ROUTES.auth.signIn);
     } catch (error: unknown) {
       console.error(error);
       toast({
@@ -106,7 +106,7 @@ const SignUpForm = () => {
         open={verificationAlert.isOpen}
         onOpenChange={(isOpen) => {
           setVerificationAlert((prev) => ({ ...prev, isOpen }));
-          if (!isOpen) router.push("/auth/sign-in");
+          if (!isOpen) router.push(ROUTES.auth.signIn);
         }}
       >
         <DialogContent>
@@ -266,7 +266,10 @@ const SignUpForm = () => {
         </div>
         <p className="mt-2 text-center text-sm text-gray-600">
           Якщо ви вже зареєстровані та верифіковані, будь ласка,{" "}
-          <Link className="text-blue-500 hover:underline" href="/auth/sign-in">
+          <Link
+            className="text-blue-500 hover:underline"
+            href={ROUTES.auth.signIn}
+          >
             увійдіть
           </Link>
         </p>

@@ -1,5 +1,6 @@
 "use client";
 import { useAppContext } from "@contexts/AppContext/useAppContext";
+import { ROUTES } from "@lib/routes";
 import { BadgeInfoIcon } from "lucide-react";
 import Link from "next/link";
 
@@ -22,7 +23,7 @@ const Page = () => {
           <b>Пряма трансляція Богослужінь</b> доступна <b>кожної неділі</b> та{" "}
           <b>у свята</b>. <br /> Для детальнішої інформації ознайомтесь із{" "}
           <br />{" "}
-          <Link className="!underline" href="/schedule">
+          <Link className="!underline" href={ROUTES.schedule}>
             розкладом богослужінь
           </Link>{" "}
           <br /> на поточний тиждень.

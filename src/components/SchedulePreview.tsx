@@ -3,6 +3,7 @@ import { forwardRef } from "react";
 import { getPeriod, getWeekDay } from "./lib/utils";
 import Image from "next/image";
 import { RadioTowerIcon, TvMinimalPlayIcon } from "lucide-react";
+import { ROUTES } from "@lib/routes";
 
 interface SchedulePreviewProps {
   schedule: Schedule[];
@@ -35,7 +36,7 @@ const SchedulePreview = forwardRef<HTMLDivElement, SchedulePreviewProps>(
         >
           {props.showQrCode && (
             <a
-              href="https://ugcc-pokrov.te.ua/schedule"
+              href={ROUTES.schedule}
               target="_blank"
               rel="noopener noreferrer"
               style={{
