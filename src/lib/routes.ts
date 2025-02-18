@@ -22,6 +22,7 @@ export const ROUTES = {
       index: "/admin/schedule" as const,
       edit: "/admin/schedule/edit" as const,
     },
+    myProfile: "/admin/my-profile",
   },
 
   /* external links */

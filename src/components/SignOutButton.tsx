@@ -1,17 +1,10 @@
-"use client";
-
 import { Button } from "@components/components/ui/button";
 import { LogOutIcon } from "lucide-react";
-import { signOut, useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
 import { useToast } from "./hooks/use-toast";
 
 const SignOutButton = () => {
-  const { data: session, status } = useSession();
   const { toast } = useToast();
-
-  // Don't render button if the user is not authenticated
-  if (status === "loading" || !session) return null;
-
   const handleLogout = async () => {
     try {
       await signOut();
@@ -26,7 +19,7 @@ const SignOutButton = () => {
     }
   };
   return (
-    <Button onClick={handleLogout} variant="destructive">
+    <Button className="w-full" onClick={handleLogout} variant="destructive">
       Вийти <LogOutIcon />
     </Button>
   );
