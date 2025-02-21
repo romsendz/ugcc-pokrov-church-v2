@@ -8,6 +8,11 @@ export async function middleware(req: NextRequest) {
 
   const { pathname } = req.nextUrl;
 
+  // Allow unauthenticated users to access /admin/privacy-policy
+  if (pathname === ROUTES.admin.privacyPolicy) {
+    return NextResponse.next();
+  }
+
   // Protect `/admin` routes - redirect unauthenticated users
   if (!session && pathname.startsWith(ROUTES.admin.index)) {
     return NextResponse.redirect(new URL(ROUTES.auth.signIn, req.url));

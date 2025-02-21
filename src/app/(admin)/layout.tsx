@@ -3,6 +3,7 @@ import "./globals.admin.scss";
 import { Toaster } from "@components/components/ui/toaster";
 import AdminHeader from "@components/AdminHeader";
 import { AuthProvider } from "@contexts/AuthProvider";
+import AdminFooter from "@components/AdminFooter";
 
 const arimo = Arimo({
   variable: "--font-arimo",
@@ -36,9 +37,10 @@ export default function RootLayout({
     <html lang="uk" className="scroll-smooth">
       <body className={`${arimo.variable} bg-slate-300 antialiased`}>
         <AuthProvider>
-          <div className={prose.join(" ")}>
+          <div className={`${prose.join(" ")} flex min-h-screen flex-col`}>
             <AdminHeader />
             <main className="flex-1">{children}</main>
+            <AdminFooter />
             <Toaster />
           </div>
         </AuthProvider>

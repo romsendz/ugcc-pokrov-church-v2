@@ -23,6 +23,7 @@ export const ROUTES = {
       edit: "/admin/schedule/edit" as const,
     },
     myProfile: "/admin/my-profile",
+    privacyPolicy: "/admin/privacy-policy",
   },
 
   /* external links */
