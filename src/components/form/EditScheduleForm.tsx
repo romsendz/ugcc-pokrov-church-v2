@@ -1,4 +1,5 @@
 "use client";
+
 import { Input } from "@components/components/ui/input";
 import { Schedule } from "@lib/prisma/queries";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -32,6 +33,7 @@ import {
   ScheduleFormValues,
 } from "@lib/zod-validation/scheduleFormSchema";
 import { ROUTES } from "@lib/routes";
+import { useTransition } from "react";
 
 // Function to calculate dates for "current" and "next" week
 const getWeekDates = (weekType: "current" | "next") => {
@@ -71,11 +73,8 @@ const getReadableDate = (date: Date) => {
   return formatted.charAt(0).toUpperCase() + formatted.slice(1);
 };
 
-interface EditScheduleFormProps {
-  schedule: Schedule[];
-}
-
-const EditScheduleForm = ({ schedule }: EditScheduleFormProps) => {
+const EditScheduleForm = ({ schedule }: { schedule: Schedule[] }) => {
+  const [isPending, startTransition] = useTransition();
   const router = useRouter();
   const { toast } = useToast();
   const form = useForm<ScheduleFormValues>({
@@ -117,12 +116,23 @@ const EditScheduleForm = ({ schedule }: EditScheduleFormProps) => {
   };
 
   const onSubmit = async (data: ScheduleFormValues) => {
-    await updateSchedule(data);
-    toast({
-      variant: "success",
-      description: "Розклад успішно оновлено",
+    startTransition(async () => {
+      try {
+        await updateSchedule(data);
+        toast({
+          variant: "success",
+          description: "Розклад успішно оновлено",
+        });
+        router.push(ROUTES.admin.schedule.index);
+      } catch (error) {
+        console.error("Error:", error);
+        toast({
+          title: "Помилка",
+          description: "Не вдалося оновити розклад.",
+          variant: "destructive",
+        });
+      }
     });
-    router.push(ROUTES.admin.schedule.index);
   };
 
   const selectedWeek = form.watch("selectedWeek");
@@ -315,12 +325,12 @@ const EditScheduleForm = ({ schedule }: EditScheduleFormProps) => {
         <hr className="!my-4 h-1 border-0 bg-gray-200 dark:bg-gray-700" />
         <div className="flex justify-end gap-4">
           <Button
-            disabled={formState.isSubmitting || !formState.isValid}
+            disabled={isPending || !formState.isValid}
             type="submit"
             variant="main-action"
           >
-            {formState.isSubmitting && <Loader2Icon className="animate-spin" />}
-            {formState.isSubmitting ? (
+            {isPending && <Loader2Icon className="animate-spin" />}
+            {isPending ? (
               "Збереження"
             ) : (
               <>
