@@ -42,3 +42,16 @@ model User {
 
   @@map("users")
 }
+
+model News {
+  title     String
+  slug      String   @unique
+  content   String
+  isVisible Boolean  @default(true) @map("is_visible")
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+  author    String
+  id        Int      @id @default(autoincrement())
+
+  @@map("news")
+}

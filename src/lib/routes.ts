@@ -22,6 +22,11 @@ export const ROUTES = {
       index: "/admin/schedule" as const,
       edit: "/admin/schedule/edit" as const,
     },
+    news: {
+      index: "/admin/news" as const,
+      detail: (id: number) => `/admin/news/${id}` as const,
+      new: "/admin/news/new",
+    },
     myProfile: "/admin/my-profile",
     privacyPolicy: "/admin/privacy-policy",
   },
