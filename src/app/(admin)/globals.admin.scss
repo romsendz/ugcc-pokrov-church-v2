@@ -11,3 +11,25 @@ body {
     --radius: 0.5rem;
   }
 }
+
+//  QUILL EDITOR
+
+// resolving server error: quill.snow.css.map 404 not found
+// https://github.com/frappe/frappe/issues/13018
+@import url(~quill/dist/quill.snow.css);
+
+// rewriting some default QUILL styles in order to ensure to define min-height for editor
+.ql-container {
+  min-height: 15rem;
+  height: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.ql-editor {
+  height: 100%;
+  flex: 1;
+  overflow-y: auto;
+  width: 100%;
+}
