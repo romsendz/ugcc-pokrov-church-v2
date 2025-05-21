@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer className="relative flex flex-col items-center gap-2 bg-footer p-2 text-center text-brand lg:grid lg:grid-cols-[repeat(3,_1fr)]">
+    <footer className="relative flex flex-col items-center gap-2 bg-footer px-6 py-4 text-center text-sm text-brand lg:grid lg:grid-cols-[1fr_1fr_1fr_max-content]">
       <p className="!m-0">Запрошуємо всіх до співпраці та спільної молитви!</p>
       <p className="!m-0">
         Парафія Покрови Пресвятої Богородиці УГКЦ <br />
@@ -24,16 +24,6 @@ const Footer = () => {
           </span>
         </a>
       </p>
-      <a
-        className="absolute bottom-3 right-3 inline-flex h-5 w-5"
-        target="_blank"
-        rel="noopener noreferrer"
-        href={ROUTES.EXTERNAL.githubReference}
-      >
-        <span className="relative inline-block h-full w-full">
-          <Image src={"/svgs/github.svg"} alt={"github"} fill />
-        </span>
-      </a>
       <div className="flex items-center gap-5 lg:justify-self-center">
         <a
           href={ROUTES.EXTERNAL.facebookChurch}
@@ -65,6 +55,14 @@ const Footer = () => {
           />
         </a>
       </div>
+      <a
+        className="text-xs text-brand hover:text-brand/80 hover:underline"
+        target="_blank"
+        rel="noopener noreferrer"
+        href={ROUTES.EXTERNAL.developerPortfolio}
+      >
+        Дизайн та розробка: Roman Sendziuk
+      </a>
     </footer>
   );
 };

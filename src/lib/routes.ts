@@ -43,5 +43,6 @@ export const ROUTES = {
       "https://uk.wikipedia.org/wiki/%D0%A6%D0%B5%D1%80%D0%BA%D0%B2%D0%B0_%D0%9F%D0%BE%D0%BA%D1%80%D0%BE%D0%B2%D0%B8_%D0%9F%D1%80%D0%B5%D1%81%D0%B2%D1%8F%D1%82%D0%BE%D1%97_%D0%91%D0%BE%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B8%D1%86%D1%96_(%D0%97%D0%B0%D0%BB%D1%96%D1%89%D0%B8%D0%BA%D0%B8)" as const,
     googleMapsLocation: "https://maps.app.goo.gl/hJHePobeKQiiE4wS9" as const,
     githubReference: "https://github.com/romsendz" as const,
+    developerPortfolio: "https://portfolio-romsendz.vercel.app/" as const,
   },
 } as const;
